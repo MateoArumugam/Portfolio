@@ -1,0 +1,238 @@
+@media screen and (max-width: 1400px) {
+    #profile {
+      height: 83vh;
+      margin-bottom: 6rem;
+    }
+    .about-containers {
+      flex-wrap: wrap;
+    }
+    #contact,
+    #projects {
+      height: fit-content;
+    }
+  }
+  
+  @media screen and (max-width: 1200px) {
+    #desktop-nav {
+      display: none;
+    }
+    #hamburger-nav {
+      display: flex;
+    }
+    #experience,
+    .experience-details-container {
+      margin-top: 2rem;
+    }
+    #profile,
+    .section-container {
+      display: block;
+    }
+    .arrow {
+      display: none;
+    }
+    section,
+    .section-container {
+      height: fit-content;
+    }
+    section {
+      margin: 0 5%;
+    }
+    .section__pic-container {
+      width: 275px;
+      height: 275px;
+      margin: 0 auto 2rem;
+    }
+    .about-containers {
+      margin-top: 0;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    #contact,
+    footer {
+      height: 40vh;
+    }
+    #profile {
+      height: 83vh;
+      margin-bottom: 0;
+    }
+    article {
+      font-size: 1rem;
+    }
+    footer nav {
+      height: fit-content;
+      margin-bottom: 2rem;
+    }
+    .about-containers,
+    .contact-info-upper-container,
+    .btn-container {
+      flex-wrap: wrap;
+    }
+    .contact-info-container {
+      margin: 0;
+    }
+    .contact-info-container p,
+    .nav-links li a {
+      font-size: 1rem;
+    }
+    .experience-sub-title {
+      font-size: 1.25rem;
+    }
+    .logo {
+      font-size: 1.5rem;
+      color: #535878;
+    }
+    .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+    .section__pic-container {
+      width: auto;
+      height: 46vw;
+      justify-content: center;
+    }
+    .section__text__p2 {
+      font-size: 1.25rem;
+    }
+    .title {
+      font-size: 2rem;
+      color: #535878;
+   
+    }
+    .text-container {
+      text-align: justify;
+    }
+  }
+
+  #game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  #game-container {
+    position: relative;
+    width: 80%;
+    height: 60vh;
+    background-color: #fee1ddab;
+    border: 2px solid  #9DB0CE;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+ 
+
+  
+  #falling-objects {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .falling-object {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #535878;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  #score {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #535878;
+  }
+
+  /* Style for the dog and paw prints */
+#dog-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+#dog {
+  width: 100px;
+  height: auto;
+  pointer-events: auto;
+}
+
+.paw-print {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('pawprint.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+#popup-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
+
+/* Hide the popup after a few seconds */
+#popup-message.hidden {
+  opacity: 0;
+}
+
+.character-container {
+  position: relative;
+  bottom: 0;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#character {
+  width: 100px;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.speech-bubble {
+  position: absolute;
+  bottom: 100%;
+  right: 50%;
+  transform: translateX(50%);
+  background: #fee1dd;
+  border: 1px solid #9DB0CE;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 0.9rem;
+  max-width: 200px;
+  text-align: center;
+  display: none; /* Initially hidden */
+}
+
+.character-container::before {
+  content: none;
+}
+
+.speech-bubble.show {
+  display: block;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
