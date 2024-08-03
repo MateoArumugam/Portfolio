@@ -20,9 +20,9 @@ p {
   color: #657185;
 }
 
-#profilepic{
-    border-radius: 2rem;
-  }
+.section__pic-container img{
+  border-radius: 10%;
+}
 
 /* TRANSITION */
 
