@@ -126,3 +126,60 @@ function showSpeechBubble() {
 
 // Add click event listener to show the speech bubble
 character.addEventListener('click', showSpeechBubble);
+
+
+// Throttle function to limit the rate at which the handleMouseMove function is called
+function throttle(func, limit) {
+  let lastFunc;
+  let lastRan;
+  return function() {
+      const context = this;
+      const args = arguments;
+      if (!lastRan) {
+          func.apply(context, args);
+          lastRan = Date.now();
+      } else {
+          clearTimeout(lastFunc);
+          lastFunc = setTimeout(function() {
+              if ((Date.now() - lastRan) >= limit) {
+                  func.apply(context, args);
+                  lastRan = Date.now();
+              }
+          }, limit - (Date.now() - lastRan));
+      }
+  };
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const eye = document.getElementById('eye');
+  const contactSection = document.getElementById('contact');
+
+  function checkSectionInView() {
+      const rect = contactSection.getBoundingClientRect();
+      const inView = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+      if (inView) {
+          eye.classList.remove('hidden');
+          eye.style.display = 'block';
+      } else {
+          eye.classList.add('hidden');
+          eye.style.display = 'none';
+      }
+  }
+
+  function handleMouseMove(event) {
+      if (!eye.classList.contains('hidden')) {
+          const eyeRect = eye.getBoundingClientRect();
+          const eyeCenterX = eyeRect.left + eyeRect.width / 2;
+          const eyeCenterY = eyeRect.top + eyeRect.height / 2;
+
+          const angle = Math.atan2(event.clientY - eyeCenterY, event.clientX - eyeCenterX);
+          const degrees = angle * (180 / Math.PI) + 90;
+          eye.querySelector('img').style.transform = `rotate(${degrees}deg)`;
+      }
+  }
+
+  window.addEventListener('scroll', checkSectionInView);
+  document.addEventListener('mousemove', throttle(handleMouseMove, 30)); // Throttled at 30ms
+});
+
