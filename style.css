@@ -432,6 +432,34 @@ article .icon {
   height: 2.5rem;
 }
 
+/* CSS for the eyeball */
+
+
+#eye.hidden {
+  display: none;
+}
+
+
+
+#eye {
+  position: fixed;
+  right: 10px; /* Adjust as needed */
+  top: 20%; /* Adjust as needed */
+  transform: translateY(-50%);
+  display: none; /* Initially hidden */
+  transition: transform 0.1s ease; /* Smooth transition for rotation */
+}
+
+
+
+#eye img {
+  width: 100px; /* Adjust as needed */
+  height: auto;
+}
+
+
+
+
 /* FOOTER SECTION */
 
 footer {
