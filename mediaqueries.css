@@ -11,7 +11,23 @@
       height: fit-content;
     }
   }
-  
+
+  .video-container {
+    width: 100%;
+    max-width: 1000px; /* Adjust as needed */
+    max-height: 1000px;
+    border-radius: 2px;
+    overflow: hidden; /* Ensure video is clipped to the container's border radius */
+    display: block;
+    margin: auto; /* Center the video if it's smaller than the full width */
+}
+
+video {
+    width: 100%;
+    height: 100%; /* Adjust height automatically to maintain aspect ratio */
+    display: block; /* Ensures video is treated as a block element */
+}
+
   @media screen and (max-width: 1200px) {
     #desktop-nav {
       display: none;
@@ -46,7 +62,7 @@
       margin-top: 0;
     }
   }
-  
+
   @media screen and (max-width: 600px) {
     #contact,
     footer {
